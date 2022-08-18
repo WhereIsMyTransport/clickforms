@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "ClickForm",
+    "version": "1.0.1",
+    "description": "Automatically fills clickup forms",
+    "homepage_url": "https://giki.hudumabomba.com",
+    "icons": {
+        "32": "icons/icon-32.png",
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png"
+    },
+    "permissions": [
+        "<all_urls>",
+        "activeTab",
+        "storage",
+        "webNavigation"
+    ],
+    "browser_action": {
+        "default_icon": "icons/icon-32.png",
+        "default_title": "Conditional ClickUp Forms",
+        "default_popup": "fillMenu.html"
+    },
+    "web_accessible_resources": [
+        "src/sample_clickup.csv"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/ClickForm.js",
+                "src/config.js"
+            ],
+            "run_at": "document_idle",
+            "all_frames": true
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #202124;
+            height: 60%;
+            width: 50%;
+            padding-bottom: 30px;
+        }
+
+        thead>tr,
+        tfoot>tr {
+            text-align: center;
+        }
+
+        #savedText {
+            opacity: 0;
+            text-align: center;
+        }
+
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul>li {
+            display: inline-block;
+        }
+
+        #title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        #selectLang {
+            float: right;
+        }
+
+        .buttonsContainer {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+    <script src="./src/jquery.js"></script>
+    <script src="./src/config.js"></script>
+    <script src="./src/ClickForm.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="min-width: 700px;">
+        <h2 class="text-left ml-2">ClickForm</h2>
+        <div id="savedText" data-lang="saved"></div>
+        <div class="row">
+            <div class="col-12 mb-2">
+                <small>Enter the Google Spreadsheet ID and click Update Spreadsheet ID to get started</small>
+            </div>
+        </div>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>
+                            <input id="CSV_URL" style="min-width: 360px;" class="form-control"
+                                placeholder="Enter G Spreadsheet" />
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary" id="CSV_URL_SAVE">Update Spreadsheet ID</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-2" />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td data-lang="label"></td>
+                    <td data-lang="value"></td>
+                </tr>
+            </thead>
+            <tbody id="tbody_responses"></tbody>
+        </table>
+
+        <div class="table-responsive text-nowrap mt-2">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>
+                            <select class="form-control" name="selectedQuestion" id="selectedQuestion">
+                                <option value="">--Select Input Label--</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary" id="selectQuestion">Add Input Label</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="buttonsContainer">
+                            <!-- <button type="button" id="updateFormFields" data-lang="Update Dynamic Fields"></button> -->
+                            <button type="button" class="btn btn-secondary" id="addPreviousQuestion"
+                                data-lang="previous"></button>
+                            <button type="button" class="btn btn-secondary" id="addNextQuestion"
+                                data-lang="add"></button>
+                        </td>
+                        <td>
+                            <div style="margin-top: 8px;" id="autoSubmit">
+                                <label for="autoSubmit">Auto Submit</label>
+                                <input type="radio" id="autoSubmit1" name="autoSubmit" value="1">
+                                <label for="1">Yes</label>
+                                <input type="radio" id="autoSubmit0" name="autoSubmit" value="0">
+                                <label for="0">No</label>
+                            </div>
+                        </td>
+
+                        <td class="buttonsContainer">
+                            <button type="button" id="saveDataButton" class="btn btn-secondary"
+                                data-lang="save"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="fillMenu.js"></script>
+</body>
+
+</html>
